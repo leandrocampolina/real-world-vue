@@ -71,6 +71,62 @@
           "name": "Mary Gordon"
         }
       ]
+    },
+    {
+      "id": 3038384,
+      "category": "sustainability",
+      "organizer": {
+        "id": "abc123",
+        "name": "adam Jahr"
+      },
+      "title": "Test",
+      "description": "Test description",
+      "location": "Divinópolis",
+      "date": "2022-11-16T16:37:00.000Z",
+      "time": "10:00",
+      "attendees": []
+    },
+    {
+      "id": 8518460,
+      "category": "animal welfare",
+      "organizer": {
+        "id": "abc123",
+        "name": "adam Jahr"
+      },
+      "title": "asa",
+      "description": "",
+      "location": "aas",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 1901291,
+      "category": "sustainability",
+      "organizer": {
+        "id": "abc123",
+        "name": "adam Jahr"
+      },
+      "title": "Working?",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 6983866,
+      "category": "education",
+      "organizer": {
+        "id": "abc123",
+        "name": "adam Jahr"
+      },
+      "title": "Workshop for developers",
+      "description": "A workshop to help developers with their careers",
+      "location": "Divinópolis. MG",
+      "date": "2022-11-04T16:51:00.000Z",
+      "time": "19:00",
+      "attendees": []
     }
   ]
 }
