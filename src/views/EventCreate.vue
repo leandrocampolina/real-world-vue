@@ -46,13 +46,8 @@
         v-model="event.time"
         class="field"
       />
-      <div class="field">
-        <label>Select a time</label>
-        <select v-model="event.time">
-          <option v-for="time in times" :key="time">{{ time }}</option>
-        </select>
-      </div>
-      <input type="submit" class="button -fill-gradient" value="Submit" />
+
+      <BaseButton type="submit" buttonClass="-fill-gradient">Submit</BaseButton>
     </form>
   </div>
 </template>
@@ -62,12 +57,14 @@ import Datepicker from "vuejs-datepicker";
 import NProgress from "nprogress";
 import BaseInput from "../components/BaseInput.vue";
 import BaseSelect from "../components/BaseSelect.vue";
+import BaseButton from "../components/BaseButton.vue";
 
 export default {
   components: {
     Datepicker,
     BaseInput,
     BaseSelect,
+    BaseButton,
   },
 
   data() {
