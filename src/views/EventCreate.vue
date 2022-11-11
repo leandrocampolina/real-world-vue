@@ -50,6 +50,7 @@
 
 <script>
 import Datepicker from "vuejs-datepicker";
+import NProgress from "nprogress";
 
 export default {
   components: {
@@ -80,7 +81,7 @@ export default {
           this.event = this.createFreshEvent();
         })
         .catch(() => {
-          console.log("Warning!!");
+          NProgress.defineComponent();
         });
     },
 
