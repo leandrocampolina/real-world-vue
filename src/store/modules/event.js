@@ -70,25 +70,21 @@ export const actions = {
       });
   },
 
-  fetchEvent({ commit, getters, dispatch }, id) {
+  fetchEvent({ commit, getters, state }, id) {
+    if (id == state.event.id) {
+      return state.event;
+    }
+
     let event = getters.getEventById(id);
 
     if (event) {
       commit("SET_EVENT", event);
       return event;
     } else {
-      return EventService.getEvent(id)
-        .then((response) => {
-          commit("SET_EVENT", response.data);
-          return response.data;
-        })
-        .catch((error) => {
-          const notification = {
-            type: "error",
-            message: "there was an error when fetching event: " + error.message,
-          };
-          dispatch("notification/add", notification, { root: true });
-        });
+      return EventService.getEvent(id).then((response) => {
+        commit("SET_EVENT", response.data);
+        return response.data;
+      });
     }
   },
 };
