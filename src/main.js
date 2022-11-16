@@ -8,6 +8,9 @@ import BaseInput from "@/components/BaseInput.vue";
 import BaseButton from "@/components/BaseButton.vue";
 import "nprogress/nprogress.css";
 import Vuelidate from "vuelidate";
+import DateFilter from "./filters/date.js";
+
+Vue.filter("date", DateFilter);
 
 Vue.use(Vuelidate);
 
