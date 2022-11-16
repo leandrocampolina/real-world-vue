@@ -1,9 +1,12 @@
 import EventService from "@/services/EventService.js";
 
+export const namespaced = true;
+
 export const state = {
   events: [],
   eventsTotal: 0,
   event: {},
+  perPage: 3,
 };
 
 export const getters = {
@@ -52,8 +55,8 @@ export const actions = {
       });
   },
 
-  fetchEvents({ commit, dispatch }, { perPage, page }) {
-    EventService.getEvents(perPage, page)
+  fetchEvents({ commit, dispatch, state }, { page }) {
+    return EventService.getEvents(state.perPage, page)
       .then((response) => {
         commit("SET_EVENTS_TOTAL", parseInt(response.headers["x-total-count"]));
         commit("SET_EVENTS", response.data);
@@ -67,23 +70,21 @@ export const actions = {
       });
   },
 
-  fetchEvent({ commit, getters, dispatch }, id) {
+  fetchEvent({ commit, getters, state }, id) {
+    if (id == state.event.id) {
+      return state.event;
+    }
+
     let event = getters.getEventById(id);
 
     if (event) {
       commit("SET_EVENT", event);
+      return event;
     } else {
-      EventService.getEvent(id)
-        .then((response) => {
-          commit("SET_EVENT", response.data);
-        })
-        .catch((error) => {
-          const notification = {
-            type: "error",
-            message: "there was an error when fetching event: " + error.message,
-          };
-          dispatch("notification/add", notification, { root: true });
-        });
+      return EventService.getEvent(id).then((response) => {
+        commit("SET_EVENT", response.data);
+        return response.data;
+      });
     }
   },
 };
